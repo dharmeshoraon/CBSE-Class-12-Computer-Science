@@ -1,0 +1,24 @@
+import os
+import pickle
+def insertRec():
+    rollno=int(input("Enter your roll number:"))
+    name=input("Enter your name:")
+    marks=int(input("Enter Marks:"))
+    rec={"Rollno":rollno,"Name":name,"Marks":marks}
+    f=open("student.dat","ab")
+    pickle.dump(rec,f)
+def readRec():
+    f=open("student.dat","rb")
+    while True:
+        try:
+            rec=pickle.load(f)
+            print("Roll Number:",rec['Rollno'])
+            print("Name",rec['Name'])
+            print("Marks",rec["Marks"])
+        except EOFError:
+            break
+#     f.close()
+# def searchRollNo(r):
+#     f=open("student.")
+
+readRec()
